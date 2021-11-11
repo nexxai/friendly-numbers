@@ -15,6 +15,7 @@ import sys, os
 
 index_search = 1.8          # This is the index of '10'
 where_to_start = 10**12     # 1 trillion
+where_to_end = 10**13       # 10 trillion (e.g. search from 1 trillion to 10 trillion)
 
 # See if there's a progress file...
 progress_file_name = "progress.txt"
@@ -37,7 +38,7 @@ else:
     start_num = where_to_start
 
 # Just start looping through each number, one by one
-for num in range(start_num, 10**13):
+for num in range(start_num, where_to_end):
     # Get each of the factors from the current number
     factors = divisors(num)
 

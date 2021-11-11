@@ -10,7 +10,7 @@ pip3 install -r requirements.txt
 ```
 
 ## Usage
-Update the `index_search` and `where_to_start` variables in the `friendly.py` file to appropriate values if you are not using the defaults, and then simply run:
+Update the `index_search`, `where_to_start`, and `where_to_end` variables in the `friendly.py` file to appropriate values if you are not using the defaults, and then simply run:
 
 ```sh
 python3 friendly.py
