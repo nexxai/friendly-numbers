@@ -13,6 +13,8 @@ from datetime import datetime
 from sympy import divisors
 import sys, os
 
+index_search = 1.8
+
 # See if there's a progress file...
 progress_file_name = "progress.txt"
 if os.path.isfile(progress_file_name):
@@ -47,8 +49,8 @@ for num in range(start_num, 10**13):
     # Calculate the index by dividing the sum of the factors by the number we're working on
     index = sum_of_factors / num
 
-    # If it matches 1.8 (the same as '10'), we found one so break out of the loop
-    if index == 1.8:
+    # If it matches index_search, we found one so break out of the loop
+    if index == index_search:
         print(f'{sum_of_factors} / {num} = {index}')
         print(factors)
         break
