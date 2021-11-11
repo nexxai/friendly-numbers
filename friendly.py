@@ -38,7 +38,7 @@ if os.path.isfile(progress_file_name):
         # Otherwise we're loading in that checkpoint
         start_num = int(start_num)
 else:
-    # No progress file found, so just start at 1 trillion
+    # No progress file found, so just start at the beginning
     start_num = where_to_start
 
 # Find the index of the provided integer
@@ -57,7 +57,7 @@ for num in range(start_num, where_to_end):
         break
 
     # Just give the user some visual feedback that we haven't stalled
-    # so every 10000 numbers we check, show the status on the screen
+    # so every [checkpoint] numbers we check, show the status on the screen
     if num % checkpoint == 0:
         now = datetime.now()
 
