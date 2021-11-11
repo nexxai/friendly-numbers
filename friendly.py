@@ -1,4 +1,6 @@
 # friendly.py - v1.0
+# 
+# Usage: python3 friendly.py
 #
 # Check for friendly numbers as described here: https://www.youtube.com/watch?v=KZ1BVlURwfI
 # 
