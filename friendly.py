@@ -13,7 +13,8 @@ from datetime import datetime
 from sympy import divisors
 import sys, os
 
-index_search = 1.8
+index_search = 1.8          # This is the index of '10'
+where_to_start = 10**12     # 1 trillion
 
 # See if there's a progress file...
 progress_file_name = "progress.txt"
@@ -33,7 +34,7 @@ if os.path.isfile(progress_file_name):
         start_num = int(start_num)
 else:
     # No progress file found, so just start at 1 trillion
-    start_num = 10**12
+    start_num = where_to_start
 
 # Just start looping through each number, one by one
 for num in range(start_num, 10**13):
