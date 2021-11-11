@@ -16,6 +16,7 @@ import sys, os
 index_search = 1.8          # This is the index of '10'
 where_to_start = 10**12     # 1 trillion
 where_to_end = 10**13       # 10 trillion (e.g. search from 1 trillion to 10 trillion)
+checkpoint = 10**4          # Update the checkpoint after how many checks?
 
 # See if there's a progress file...
 progress_file_name = "progress.txt"
@@ -59,7 +60,7 @@ for num in range(start_num, where_to_end):
 
     # Just give the user some visual feedback that we haven't stalled
     # so every 10000 numbers we check, show the status on the screen
-    if num % 10**4 == 0:
+    if num % checkpoint == 0:
         now = datetime.now()
 
         current_time = now.strftime("%H:%M:%S")
