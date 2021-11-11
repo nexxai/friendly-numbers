@@ -11,10 +11,11 @@
 
 from datetime import datetime
 from sympy import divisors
-import sys, os
+from functions import find_index
+import sys, os, re
 
 # SETTINGS
-index_search = 1.8                      # This is the index of '10'
+index_search = 10                       # Get the index of '10'
 where_to_start = 10**12                 # 1 trillion
 where_to_end = 10**13                   # 10 trillion (e.g. search from 1 trillion to 10 trillion)
 checkpoint = 10**4                      # Update the checkpoint after how many checks?
@@ -29,9 +30,10 @@ if os.path.isfile(progress_file_name):
         start_num = progress_file.read()
         
         # If it contains the text 'FOUND' just print it out and exit
-        if start_num.startswith('FOUND'):
+        match = re.search(r"FOUND:\s(\d{1,})", start_num)
+        if match:
             print(start_num)
-            print(divisors(start_num))
+            print(divisors(int(match.group(1))))
             sys.exit()
         # Otherwise we're loading in that checkpoint
         start_num = int(start_num)
@@ -39,22 +41,16 @@ else:
     # No progress file found, so just start at 1 trillion
     start_num = where_to_start
 
+# Find the index of the provided integer
+# (The [0] is because find_index returns 3 values, we only want the first)
+search = find_index(index_search)[0]
+
 # Just start looping through each number, one by one
 for num in range(start_num, where_to_end):
-    # Get each of the factors from the current number
-    factors = divisors(num)
-
-    # Initialize the counter
-    sum_of_factors = 0
-    # and then add the factors together
-    for factor in factors:
-        sum_of_factors += factor
-
-    # Calculate the index by dividing the sum of the factors by the number we're working on
-    index = sum_of_factors / num
+    index, sum_of_factors, factors = find_index(num)
 
     # If it matches index_search, we found one so break out of the loop
-    if index == index_search:
+    if index == search:
         print(f'{sum_of_factors} / {num} = {index}')
         print(factors)
         break
