@@ -13,13 +13,14 @@ from datetime import datetime
 from sympy import divisors
 import sys, os
 
-index_search = 1.8          # This is the index of '10'
-where_to_start = 10**12     # 1 trillion
-where_to_end = 10**13       # 10 trillion (e.g. search from 1 trillion to 10 trillion)
-checkpoint = 10**4          # Update the checkpoint after how many checks?
+# SETTINGS
+index_search = 1.8                      # This is the index of '10'
+where_to_start = 10**12                 # 1 trillion
+where_to_end = 10**13                   # 10 trillion (e.g. search from 1 trillion to 10 trillion)
+checkpoint = 10**4                      # Update the checkpoint after how many checks?
+progress_file_name = "progress.txt"     # Name of the checkpoint file
 
 # See if there's a progress file...
-progress_file_name = "progress.txt"
 if os.path.isfile(progress_file_name):
     # If so, open it...
     progress_file = open(progress_file_name, "r")
