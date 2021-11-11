@@ -47,6 +47,7 @@ search = find_index(index_search)[0]
 
 # Just start looping through each number, one by one
 for num in range(start_num, where_to_end):
+    # Destructure find_index into its appropriate variables
     index, sum_of_factors, factors = find_index(num)
 
     # If it matches index_search, we found one so break out of the loop
