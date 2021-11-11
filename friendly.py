@@ -54,8 +54,8 @@ for num in range(start_num, search_space_end):
 
     # If it matches friendly_number, we found one so break out of the loop
     if index == search:
-        print(f'{sum_of_factors} / {num} = {index}')
-        print(factors)
+        print(f'Index: {sum_of_factors} / {num} = {index}')
+        print(f'Factors: {factors}')
         break
 
     # Just give the user some visual feedback that we haven't stalled
@@ -65,8 +65,8 @@ for num in range(start_num, search_space_end):
 
         current_time = now.strftime("%H:%M:%S")
         print(f'[{current_time}] Working on: {num}')
-        print(f'{sum_of_factors} / {num} = {index}')
-        print(factors)
+        print(f'Index: {sum_of_factors} / {num} = {index}')
+        print(f'Factors: {factors}')
 
         # And update the checkpoint file
         progress = open(progress_file_name, "w")
